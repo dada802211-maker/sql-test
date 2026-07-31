@@ -31,6 +31,17 @@ CREATE TABLE IF NOT EXISTS users (
 
 $db->execute($sql);
 
+$sql = "
+CREATE TABLE IF NOT EXISTS user_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(32) NOT NULL,
+    action VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+";
+
+$db->execute($sql);
+
 
 // ==========================
 // データ追加

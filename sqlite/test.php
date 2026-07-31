@@ -30,6 +30,16 @@ CREATE TABLE IF NOT EXISTS users (
 ";
 
 $db->execute($sql);
+$sql = "
+CREATE TABLE IF NOT EXISTS user_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    action TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+";
+
+$db->execute($sql);
 
 
 // ==========================
