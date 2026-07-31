@@ -12,7 +12,10 @@ $db = new DataSource(
     'root',
     ''
 );
-
+// sqlite
+// $db = new DataSource(
+//     __DIR__ . "/database.sqlite"
+// );
 
 // ==========================
 // テーブル作成
@@ -28,6 +31,16 @@ CREATE TABLE IF NOT EXISTS users (
         ON UPDATE CURRENT_TIMESTAMP
 )
 ";
+// sqlite
+// $sql = "
+// CREATE TABLE IF NOT EXISTS users (
+//     id TEXT PRIMARY KEY,
+//     name TEXT NOT NULL,
+//     email TEXT NOT NULL UNIQUE,
+//     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+//     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+// )
+// ";
 
 $db->execute($sql);
 
@@ -39,6 +52,15 @@ CREATE TABLE IF NOT EXISTS user_logs (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )
 ";
+// sqlite
+// $sql = "
+// CREATE TABLE IF NOT EXISTS user_logs (
+//     id INTEGER PRIMARY KEY AUTOINCREMENT,
+//     user_id TEXT NOT NULL,
+//     action TEXT NOT NULL,
+//     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+// )
+// ";
 
 $db->execute($sql);
 

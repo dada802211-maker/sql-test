@@ -13,6 +13,10 @@ $db = new DataSource(
     'root',
     ''
 );
+// sqlite
+// $db = new DataSource(
+//     __DIR__ . "/database.sqlite"
+// );
 
 
 try {
